@@ -1,9 +1,5 @@
-Template for the Read the Docs tutorial
-=======================================
+Overview of my Audio Setup
+===========================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
+This Overview of my Audio Setup, Hard- and Software is as much for my private documentation as it is written in the hope that it might be usefull for others.
 
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
