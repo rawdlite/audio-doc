@@ -32,3 +32,21 @@ ______________
 * AVR1 `Yamaha RX2060 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-a2060_u/specs.html>`_
 * AVR2 `Yamaha RX-V481 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-v481_u/specs.html>`_
 * HA1  Citypulse DA2.03
+
+Source:
+_______
+* Yamaha BD-S681
+* Raspi4 w/ Allo Digione
+* Odroid C2 w/ Hifishield
+* Asus Tinkerboard
+
+Old and busted
+^^^^^^^^^^^^^^
+
+* Yamaha RX V2067
+* Onkyo DX 6850 CD-Player
+* Pioneer PD-S904
+* Sony TA-1150
+* luxmann C-12
+* Techics SE-9021
+* Revox A77 MK IV

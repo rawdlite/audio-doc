@@ -3,4 +3,5 @@
 For accessing local audiofiles i prefer nfs, that has a smaller footprint as SMB (aka sambas) or afp.
 Inside a a local network with NAT authentication is no requirement.
 Also nfs shares can be automatically mounted when the path is visited.
-:documentation
+
+.. _nfs_documentation:
