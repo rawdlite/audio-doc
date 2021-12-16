@@ -29,22 +29,41 @@ Structure
 #########
 All audio listening setups are divided in three parts:
 
-#. the repository aka storage of audio information
-
 #. the controller aka the UI or GUI
 
 #. the renderer aka the player
 
-Not all solutions have such a strict division of components, but integrate some or all of them.
+#. the repository aka storage of audio information
+
+
+
+Controller UI
+-------------
 
 Local Player
 _____________
-
+Not all solutions have such a strict seaparation of components, but integrate some or all of them.
 Traditional local player applications like iTunes, foobar, vlc .... have the controller and render part combined in one Applikation.
 Repository can be local files or streaming services. While easy to setup and configure you are pretty much restricted to use a single device.
 
-Other Player (Renderer)
------------------------
+Streaming Services
+___________________
+
+i regularly use these streaming services
+
+* Spotify
+
+* Qobuz
+
+I like the editorial content of Qobuz as much as the presence of High Res audio.
+These streaming services can be seen as a remote :ref:repository_ with a GUI as a native Application for iOs, Android
+which are probably the most popular usecases.
+Alternative Interfaces provided by volumio or mopidy require access to the streaming services
+APIs. This proves to be not an easy task.
+
+
+Network Player (Renderer)
+-------------------------
 
 * mpd
 * mopidy
@@ -83,9 +102,7 @@ Alsa sees a device independently from the power status of the usb device and aqt
 * Alsa -> HDMI
 With a given AVR connecting via HDMI is an easy option to get digital audio from your SBC.
 Identifying the correct HDMI device for alsa might involve a bit of try and error.
-
-So far i have not been able to distinguish SQ using any of the aforemetioned methods.
-But then i don't claim to have the best ears or equipment.
+While this is a convenient connection it might be not be best for `Sound Quality <https://www.audiosciencereview.com/forum/index.php?threads/a-deep-dive-into-hdmi-audio-performance.56/>`_
 
 
 Repository

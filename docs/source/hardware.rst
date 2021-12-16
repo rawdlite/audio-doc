@@ -1,5 +1,5 @@
-Hardware:
----------
+My Hardware:
+------------
 
 Speaker:
 ________
