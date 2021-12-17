@@ -3,17 +3,16 @@ Welcome to Rawdlite's Audio Adventures!
 
 **This is a place where i document my journey in the Land of digital Audio**
 
+This is an attempt to sort out the various aspects of computer based audio that i am interested in
+and done in the hope that it might be useful to others.
 Emphasis is on issues around network streamers based on Raspberry 4 and other SBCs like the asus Tinkerboard and the Odroid C2.
-There are an abundance of ready made solutions one can install via a complette image. Yet sooner or later i find something i want to tinker with and this approach feels to limiting for my taste.
-
-If you enjoy the indepedence of `free software <https://www.fsf.org/>`_, like to know how thinks work and to optimize your listening experience, then this documentation might be for you.
-
+There is a strong preference on solutions based on linux and  `free software <https://www.fsf.org/>`_
 Check out the :doc:`cooperation` section for further information, including
 how to comment and cooperate on this project.
 
 .. note::
 
-   This project is under active development.
+   This project is in its infancy and under active development.
 
 .. todo::
 
@@ -21,21 +20,100 @@ how to comment and cooperate on this project.
     - elaborate on software setup
         - docker compose
     - elaborate on file maintainance
+        - beets
         - add sample scripts
     - measuring with REW
     - elaborate on DCR and camillaDSP
 
-Structure
-#########
-All audio listening setups are divided in three parts:
+General Overview
+################
+All audio listening setups can be divided in three parts:
 
-#. the controller aka the UI or GUI
+#. the controller aka the UI or GUI ->
 
-#. the renderer aka the player
+#. the renderer aka the player ->
 
-#. the repository aka storage of audio information
+#. the repository aka storage of audio information ->
+
+Usecases
+########
+
+i find it useful to differentiate between the various situations of music listening.
+
+#. `Nearfield`_
+Sitting at a desk in front of a screen and listening to nearfield monitors.
+AKA work.
+
+#. `Midfield`_ and Farfield
+Pretty much anything else.
+
+Implementations
+###############
+
+there are different implementations
+
+#. Single Apps
+itunes, bubbleupnp ->
+
+#. `Distributions`_
+
+#. `Free Setups`_
 
 
+Nearfield
+---------
+image:: pics/desktop.png
+  :width: 400
+  :alt: Nearfield Listening
+
+In Nearfield listening there is little advantage in using a SBC based network streamer.
+I have my Mac Book connected to my DAC (RME ADI-2 via USB) that is connected to a pair of active Nearfield
+Monitors (Genelec 8030 via XLR)
+I listen to Spotify, Qobuz and Youtube Music using the native Apps.
+Local Files are mounted from the NAS and played by itunes or vlc.
+Not missing anything so far.
+
+Midfield
+--------
+
+
+Distributions
+-------------
+Distributions are an approach to make linux based network streamers accessible to a broader audience.
+This is achieved by providing a OS Image that can be written (flashed) to a sd card.
+When the sd-card is inserted into a SBC (mostly Raspberry) a GUI guides through the setup process.
+The GUI is web based and can be accessed via various devices.
+The underlying components are mostly the same across the various distributions.
+mpd ->, upmpdcli -> , spotifyd -> etc.
+
+#. volumio
+debian
+
+#. raudio (runeaudio)
+arch
+
+#. moOde
+
+The convenience of distributions come at a price.
+They are hard to maintain. see pimusicbox ->
+They are locked to a specific OS by a specific version.
+Upgrading to a newer OS Version is a major effort.
+To manage this workload ost distributions are limited to the most prominent SBC platform, the raspberry pi.
+While the raspberry is a great device, it is not the best platform for audio.
+The raspberries shortcomings in the audio domain require additional hardware.
+DACs ->, Audio HATs ->
+
+Free Setups
+-----------
+A 'free setup' is trading convenience for flexibility.
+Choose a platform (PC, Mac, Tinkerboard, Odroid ...)
+Choose a OS supported by the platform.
+Choose best of breed components.
+Use the commandline.
+
+#. Setup base system
+#. Install components
+#. Configuration
 
 Controller UI
 -------------

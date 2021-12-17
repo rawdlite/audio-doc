@@ -16,6 +16,8 @@ ________
 
 * LS6 `Img Stageline (Monacor) SW65 <https://www.monacor.com/products/pa-technology/speakers-/speaker-systems/active-speaker-systems/sound-65-sw/>`_ (active)
 
+* LS7 Genelec 3020
+
 * SW1 `ÀSW Cantius AS 404 <https://web.archive.org/web/20101202020201/http://www.asw-loudspeaker.com/asw-we/produkte/cantius/cantius-as-404-subwoofer.php?sprache=>`_
 
 Cans:
@@ -32,6 +34,11 @@ ______________
 * AVR1 `Yamaha RX2060 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-a2060_u/specs.html>`_
 * AVR2 `Yamaha RX-V481 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-v481_u/specs.html>`_
 * HA1  Citypulse DA2.03
+
+DAC:
+----
+
+* RME ADI-2 DAC FS
 
 Source:
 _______
