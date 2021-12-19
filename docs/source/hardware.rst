@@ -36,9 +36,10 @@ ______________
 * HA1  Citypulse DA2.03
 
 DAC:
-----
+____
 
 * RME ADI-2 DAC FS
+* Evo Sabre ES9038Q2M
 
 Source:
 _______
