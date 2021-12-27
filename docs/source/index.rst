@@ -42,29 +42,26 @@ i find it useful to differentiate between the various situations of music listen
 
 * `Nearfield`_
 
-Sitting at a desk in front of a screen and listening to nearfield monitors.
-AKA work.
+    Sitting at a desk in front of a screen and listening to nearfield monitors while working on a laptop,
+    the laptop can be used as a `Desktop Player`_.
 
-* `Midfield`_ and Farfield
+* Midfield and Farfield
 
-Pretty much anything else.
+    In Mid- and Farfield listening usecases som kind of wireless remote controller is requirerd to manifest a convenient solution.
+    MOre then one soundsystem might need controlling. `Multi Room`_
 
 Implementations
 ###############
 
 There are different implementations
 
-* Single Apps
-
-itunes, bubbleupnp ->
-
 * `Distributions`_
 
 * `Free Setups`_
 
 
-Nearfield
----------
+Desktop Player
+--------------
 image:: pics/desktop.png
   :width: 400
   :alt: Nearfield Listening
@@ -73,15 +70,12 @@ In Nearfield listening there is little advantage in using a SBC based network st
 I have my Mac Book connected to my DAC (RME ADI-2 via USB) that is connected to a pair of active Nearfield
 Monitors (Genelec 8030 via XLR)
 I listen to Spotify, Qobuz and Youtube Music using the native Apps.
-Local Files are mounted from the NAS and played by itunes or vlc.
-Not missing anything so far.
-
-Midfield
---------
+Local Files are mounted from the NAS and played by clmentine_ .
 
 
 Distributions
 -------------
+
 Distributions are an approach to make linux based network streamers accessible to a broader audience.
 This is achieved by providing a OS Image that can be written (flashed) to a sd card.
 When the sd-card is inserted into a SBC (mostly Raspberry) a GUI guides through the setup process.
@@ -106,15 +100,16 @@ DACs ->, Audio HATs ->
 
 Free Setups
 -----------
+
 A 'free setup' is trading convenience for flexibility.
 Choose a platform (PC, Mac, Tinkerboard, Odroid ...)
 Choose a OS supported by the platform.
 Choose best of breed components.
 Use the commandline.
+Free Setups not only provide for ultimate configurability most importantly they run on any hardware like the odroid_
+or the `asus tinkerboard`_ which are better suited for audio than the popular raspberry.
+The best base for a free setup i found so far is dietpi_
 
-#. Setup base system
-#. Install components
-#. Configuration
 
 Controller UI
 -------------
@@ -122,7 +117,7 @@ Controller UI
 Local Player
 _____________
 Not all solutions have such a strict seaparation of components, but integrate some or all of them.
-Traditional local player applications like iTunes, foobar, vlc .... have the controller and render part combined in one Applikation.
+Traditional local player applications like iTunes, foobar, vlc, clementine, audirvana .... have the controller and render part combined in one Applikation.
 Repository can be local files or streaming services. While easy to setup and configure you are pretty much restricted to use a single device.
 
 Streaming Services
@@ -146,6 +141,7 @@ Network Player (Renderer)
 
 * mpd
 * mopidy
+* squuezelite
 
 Alsa
 ____
@@ -255,7 +251,7 @@ Chain Links
     :glob:
     :hidden:
 
-    nfs.rst
     cooperation.rst
     hardware.rst
     distributions.rst
+    dietpi.rst

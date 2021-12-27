@@ -129,7 +129,7 @@ Since the audio files reside on the NAS it makes sense to run the LMS on the NAS
 This is not supported by Synology by an App any longer. So its docker to the rescue.
 The difficulties of getting docker installed depend on the NAS model used.
 I was successful downloading a paket direct from the synology repository and doing a manual upload. YMMV
-The setup in the synology docker app did not work for me, so i set it up via ssh.
+The setup in the synology docker app did not quite work for me, so i set it up via ssh.
 Create a docker-compose.yml file in /volume1/docker/lms/:
 
 .. code-block:: yaml
@@ -138,6 +138,7 @@ Create a docker-compose.yml file in /volume1/docker/lms/:
     services:
       lms:
         container_name: lms
+        network_mode: host
         image: lmscommunity/logitechmediaserver
         volumes:
           - /volume1/docker/lms/config:/config:rw
@@ -145,13 +146,7 @@ Create a docker-compose.yml file in /volume1/docker/lms/:
           - /volume1/docker/lms/playlist:/playlist:rw
           - /etc/localtime:/etc/localtime:ro
           - /etc/TZ:/etc/timezone:ro
-        ports:
-          - 9999:9999/tcp
-          - 9090:9090/tcp
-          - 3483:3483/tcp
-          - 3483:3483/udp
         environment:
-          - HTTP_PORT=9999
           - PUID=1026
           - PGID=100
         restart: always
@@ -159,7 +154,16 @@ Create a docker-compose.yml file in /volume1/docker/lms/:
 Note: /volume1/music/music_data needs to be adapted of course.
 Important is to set the User and Group ID correctly or local media can not be accessed.
 
-Run docker-compose up -d and enjoy
+Run
 
+.. code::
 
+    docker-compose up -d and enjoy
+
+One has to understand that with LMS the server looks for client and the connection is controlled by the server.
+So next we go on the servers Webpage  http://<NAS IP>:9000 and select our player.
+
+On the `Evo Sabre`_ the second Display now kept complaining 'No Player connected'.
+The display is driven by /home/dietpi/oled...
+In that script the IP of our NAS has to be inserted instead of localhost.
 
