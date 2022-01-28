@@ -252,6 +252,7 @@ Chain Links
     :hidden:
 
     cooperation.rst
+    projects.rst
     hardware.rst
     distributions.rst
     dietpi.rst
