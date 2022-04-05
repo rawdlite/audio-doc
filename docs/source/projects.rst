@@ -38,6 +38,7 @@ Setup
 ______
 
 First lets write a little script to switch the plugs:
+/home/pi/bin/switchPlugs.sh
 
 ::
 
@@ -54,7 +55,50 @@ For this to work obviously entries in /etc/hosts are requirerd
     192.168.0.202	plug1 shellyplug-s-A7874A
 
 We could have used the IP adresses in the script directly, but this way is more flexible.
+Now lets test what we have so far
+
+::
+
+    chmod +x /home/pi/bin/switchPlugs.sh
+    /home/pi/bin/switchPlugs.sh on
+    /home/pi/bin/switchPlugs.sh off
+
+
 Now lets define the udev rules to trigger our script. There is an abundance of documentation on udev and setting up udev rules.
+Monitor what is going on with udevadm
+
+::
+
+    udevadm monitor
+    monitor will print the received events for:
+    UDEV - the event which udev sends out after rule processing
+    KERNEL - the kernel uevent
+
+    KERNEL[91888.842270] remove   /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2/1-1.2:1.0/sound/card1/controlC1 (sound)
+    KERNEL[91888.842424] remove   /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2/1-1.2:1.0/sound/card1/pcmC1D0p (sound)
+    ...
+
+This is the log entry triggered when switching off the DAC. This tells us the Dac is registered as card1 controlC1. This might change when amother soundcard is added.
+So we search for a more specific identifier.
+
+::
+
+    udevadm info -a udevadm info /sys/devices/platform/scb/fd500000.pcie/pci0000\:00/0000\:00\:00.0/0000\:01\:00.0/usb1/1-1/1-1.2/1-1.2\:1.0/sound/card1
+
+    looking at parent device '/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2':
+    KERNELS=="1-1.2"
+    SUBSYSTEMS=="usb"
+    ATTRS{manufacturer}=="RME"
+    ATTRS{product}=="ADI-2 DAC (54695303)"
+    ATTRS{serial}=="BE6142A734D3AC8"
+    ....
+
+    udevadm info /sys/devices/platform/scb/fd500000.pcie/pci0000\:00/0000\:00\:00.0/0000\:01\:00.0/usb1/1-1/1-1.2/1-1.2\:1.0/sound/card1
+
+    E: ID_SERIAL=RME_ADI-2_DAC__54695303__BE6142A734D3AC8
+    ....
+
+Now lets create our rule in /etc/udev/rules.d/80-local.rules
 
 ::
 
