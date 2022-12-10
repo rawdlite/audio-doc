@@ -2,6 +2,32 @@
 Projects
 ************
 
+SSH Setup
+---------
+
+All my projects, add ons and customizations are done on the commandline.
+So making the terminal access as easy as possible pays of.
+
+Copy Keys
+_________
+
+If you have no ssh keys set the up with ssh-keygen.
+Then copy them with ssh-copy-id to the target machine.
+Like
+    ssh-copy-id pi@192.168.0.57
+now you can login without the use of a password.
+
+SSH Config
+__________
+
+Add an entry in ~/.ssh/config like
+
+    ``Host moode
+        Hostname 192.168.0.57
+        User pi``
+
+you can login with ssh moode now.
+
 Remote Power Switch
 -------------------
 
@@ -36,6 +62,9 @@ Also they support MQTT and CoIoT protocol which is nice to have as well as the b
 
 Setup
 ______
+
+EDIT: I found that the udev rules already present in recent moode do not play well with this approach.
+I am using a dedicated Tinkerboard now. YMMV
 
 First lets write a little script to switch the plugs:
 /home/pi/bin/switchPlugs.sh
@@ -77,23 +106,23 @@ Monitor what is going on with udevadm
     KERNEL[91888.842270] remove   /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2/1-1.2:1.0/sound/card1/controlC1 (sound)
     KERNEL[91888.842424] remove   /devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2/1-1.2:1.0/sound/card1/pcmC1D0p (sound)
     ...
-
+ /devices/platform/ff540000.usb/usb1/1-1/1-1.1/1-1.1:1.0/sound/card1
 This is the log entry triggered when switching off the DAC. This tells us the Dac is registered as card1 controlC1. This might change when amother soundcard is added.
 So we search for a more specific identifier.
 
 ::
 
-    udevadm info -a udevadm info /sys/devices/platform/scb/fd500000.pcie/pci0000\:00/0000\:00\:00.0/0000\:01\:00.0/usb1/1-1/1-1.2/1-1.2\:1.0/sound/card1
+    udevadm info -a /sys/devices/platform/ff540000.usb/usb1/1-1/1-1.3/1-1.3:1.0/sound/card1/
 
-    looking at parent device '/devices/platform/scb/fd500000.pcie/pci0000:00/0000:00:00.0/0000:01:00.0/usb1/1-1/1-1.2':
-    KERNELS=="1-1.2"
-    SUBSYSTEMS=="usb"
-    ATTRS{manufacturer}=="RME"
-    ATTRS{product}=="ADI-2 DAC (54695303)"
-    ATTRS{serial}=="BE6142A734D3AC8"
-    ....
+    looking at device '/devices/platform/ff540000.usb/usb1/1-1/1-1.3/1-1.3:1.0/sound/card1':
+    KERNEL=="card1"
+    SUBSYSTEM=="sound"
+    DRIVER==""
+    ATTR{id}=="DAC54695303"
+    ......
 
-    udevadm info /sys/devices/platform/scb/fd500000.pcie/pci0000\:00/0000\:00\:00.0/0000\:01\:00.0/usb1/1-1/1-1.2/1-1.2\:1.0/sound/card1
+
+    udevadm info /sys/devices/platform/ff540000.usb/usb1/1-1/1-1.3/1-1.3:1.0/sound/card1/
 
     E: ID_SERIAL=RME_ADI-2_DAC__54695303__BE6142A734D3AC8
     ....
@@ -102,8 +131,8 @@ Now lets create our rule in /etc/udev/rules.d/80-local.rules
 
 ::
 
-    ACTION=="add", SUBSYSTEM=="usb", ATTRS{product}=="ADI-2 DAC (54695303)", ATTRS{manufacturer}=="RME", ATTRS{serial}=="BE6142A734D3AC8", RUN+="/home/pi/bin/switchPlugs.sh on"
-    ACTION=="remove",  SUBSYSTEM=="sound", ENV{ID_SERIAL}=="RME_ADI-2_DAC__54695303__BE6142A734D3AC8" ,  RUN+="/home/pi/bin/switchPlugs.sh off"
+    ACTION=="add", SUBSYSTEM=="sound", ATTR{id}=="DAC54695303"  RUN+="/root/bin/switchPlugs.sh on"
+    ACTION=="remove",  SUBSYSTEM=="sound", ENV{ID_SERIAL}=="RME_ADI-2_DAC__54695303__BE6142A734D3AC8" ,  RUN+="/root/bin/switchPlugs.sh off"
 
 Lets activate the rules
 
