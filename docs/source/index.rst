@@ -2,6 +2,7 @@ Welcome To The Ultimate Audio Setup!
 ====================================
 
 There is of cause no ultimate Audio Setup.
+
 I tried quite a lot of setups thinking this is the ultimate solution.
 At long last i ended up with a setup, that is stable, convenient and provides what i want.
 
@@ -19,27 +20,46 @@ I tried to write a plugin, but Qobuz is not giving access to its api.
 
 My ultimate solution now consists of theses components:
 
-* 'Dietpi_'
-* 'LMS_' aka Logitech Media Server
+* `Dietpi`_
+* `LMS`_ aka Logitech Media Server
 * Squeezelite as a LMS client
 * shairport
 * camilladsp
 * custom scripts for convenience
 
 
+1. Install ``dietpi <https://dietpi.com/>`_
+    See Details `here`_
+    .. _here: Dietpi_
 
+2. Install an LMS Server. You have a couple of options:
 
+    * use a dedicated server
+    * use NAS to run a docker container `LMS on Synology`_
 
+3. Install squeezelite as a client
 
-Controller UI
--------------
+    i recommend dietpi
+    .. code::
 
-Local Player
-_____________
-Not all solutions have such a strict seaparation of components, but integrate some or all of them.
-Traditional local player applications like iTunes, foobar, vlc, clementine, audirvana .... have the controller and render part combined in one Applikation.
-Repository can be local files or streaming services. While easy to setup and configure you are pretty much restricted to use a single device.
+        sudo dietpi-software
 
+    edit /etc/default/squeezelite
+    .. code::
+
+        ARGS='-W -C 5 -n DietPi3 -s 192.168.1.4 -o hw:CARD=Loopback,DEV=0 -r 48000-48000 -R hLE:::28'
+
+    make sure your audio group is populated by squeezelite
+    .. code::
+
+        audio:x:29:squeezelite,dietpi,shairport-sync
+
+    Now start/restart the squuzelite service and check that the clent appears on the LMS Server.
+
+4. Install shairplay
+in /usr/local/etc/shairport-sync.conf edit the alsa section
+output_device = "hw:Loopback for camilla
+output_rate = 44100;
 
 Alsa
 ____
@@ -147,10 +167,10 @@ Chains
     :hidden:
 
     cooperation.rst
-    camiladsp.rst
+    dietpi.rst
     lms.rst
-    mopidy.rst
+    camiladsp.rst
     projects.rst
     hardware.rst
+    mopidy.rst
     distributions.rst
-    dietpi.rst

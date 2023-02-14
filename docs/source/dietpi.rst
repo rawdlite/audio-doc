@@ -1,5 +1,6 @@
+******
 Dietpi
-------
+******
 
 I used to customise fresh os images with a couple of ansible scripts. This became obsolet when i discovered `dietpi <https://dietpi.com/>`_.
 Dietpi provides os images for every SBC platform i care about and then some.
