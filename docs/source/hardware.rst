@@ -30,6 +30,7 @@ Amplification:
 ______________
 
 * Power Amps `MPA-M500NC Mono Amplifier Class D NCore <https://www.audiophonics.fr/en/power-amplifier/audiophonics-mpa-m500nc-mono-amplifier-class-d-ncore-1x500w-4-ohm-p-14319.html>`_
+* Power Amps `MPA-M400NC Mono Amplifier Class D NCore <https://www.audiophonics.fr/en/power-amplifier/audiophonics-mpa-m400nc-class-d-mono-amplifier-ncore-1x400w-4-ohm-p-14155.html>`_
 * AMP1 `Harman Kardon 650 <https://www.hifi-wiki.de/index.php/Harman/kardon_HK_650>`_
 * AMP NAD 720 BEE
 * AVR1 `Yamaha RX2060 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-a2060_u/specs.html>`_

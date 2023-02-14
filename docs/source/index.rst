@@ -1,114 +1,34 @@
-Welcome To my Attempt To Document Various Audio Setups!
-=======================================================
+Welcome To The Ultimate Audio Setup!
+====================================
 
-**This is a place where i document my journey in the Land of digital Audio**
+There is of cause no ultimate Audio Setup.
+I tried quite a lot of setups thinking this is the ultimate solution.
+At long last i ended up with a setup, that is stable, convenient and provides what i want.
 
-This is an attempt to sort out the various aspects of computer based audio that i am interested in
-and done in the hope that it might be useful to others.
-Emphasis is on issues around network streamers based on Raspberry 4 and other SBCs like the asus Tinkerboard and the Odroid C2.
-There is a strong preference on solutions based on linux and  `free software <https://www.fsf.org/>`_
-Check out the :doc:`cooperation` section for further information, including
-how to comment and cooperate on this project.
+You are invited to leave a comment in the `issues <https://github.com/rawdlite/audio-doc/issues>`_ section
 
-.. note::
+On my quest i tried quite a few `Distributions`_.
+In the end i found them lacking functionality, like supporting Qobuz my Streamingservice of choice.
+Or in the case of moode they are so overengineered that neither my udev scripts nor my amp switch works under moode.
+Also almost every distribution i came across uses mpd, which is crashing a lot on my extensive collection.
 
-   This project is in its infancy and under active development.
+I used 'Mopidy_' as an alternative to mpd and RompR for a long time.
+I even composed a docker environment to create my setup in an instant.
+In the end it was a great solution to play my local files, yet there is no way to play Qobuz this way.
+I tried to write a plugin, but Qobuz is not giving access to its api.
 
-.. todo::
+My ultimate solution now consists of theses components:
 
-    - come up with a general structure.
-    - elaborate on software setup
-        - docker compose
-    - elaborate on file maintainance
-        - beets
-        - add sample scripts
-    - measuring with REW
-    - elaborate on DCR and camillaDSP
-
-General Overview
-################
-All audio listening setups can be divided in three parts:
-
-#. the controller aka the UI or GUI ->
-
-#. the renderer aka the player ->
-
-#. the repository aka storage of audio information ->
-
-Usecases
-########
-
-i find it useful to differentiate between the various situations of music listening.
-
-* `Nearfield`_
-
-    Sitting at a desk in front of a screen and listening to nearfield monitors while working on a laptop,
-    the laptop can be used as a `Desktop Player`_.
-
-* Midfield and Farfield
-
-    In Mid- and Farfield listening usecases som kind of wireless remote controller is requirerd to manifest a convenient solution.
-    MOre then one soundsystem might need controlling. `Multi Room`_
-
-Implementations
-###############
-
-There are different implementations
-
-* `Distributions`_
-
-* `Free Setups`_
+* 'Dietpi_'
+* 'LMS_' aka Logitech Media Server
+* Squeezelite as a LMS client
+* shairport
+* camilladsp
+* custom scripts for convenience
 
 
-Desktop Player
---------------
-image:: pics/desktop.png
-  :width: 400
-  :alt: Nearfield Listening
-
-In Nearfield listening there is little advantage in using a SBC based network streamer.
-I have my Mac Book connected to my DAC (RME ADI-2 via USB) that is connected to a pair of active Nearfield
-Monitors (Genelec 8030 via XLR)
-I listen to Spotify, Qobuz and Youtube Music using the native Apps.
-Local Files are mounted from the NAS and played by clmentine_ .
 
 
-Distributions
--------------
-
-Distributions are an approach to make linux based network streamers accessible to a broader audience.
-This is achieved by providing a OS Image that can be written (flashed) to a sd card.
-When the sd-card is inserted into a SBC (mostly Raspberry) a GUI guides through the setup process.
-The GUI is web based and can be accessed via various devices.
-The underlying components are mostly the same across the various distributions.
-mpd ->, upmpdcli -> , spotifyd -> etc.
-
-#. `Volumio`_
-
-#. `Raudio 1`_
-
-#. `MoOde`_
-
-The convenience of distributions come at a price.
-They are hard to maintain. see pimusicbox ->
-They are locked to a specific OS by a specific version.
-Upgrading to a newer OS Version is a major effort.
-To manage this workload ost distributions are limited to the most prominent SBC platform, the raspberry pi.
-While the raspberry is a great device, it is not the best platform for audio.
-The raspberries shortcomings in the audio domain require additional hardware.
-DACs ->, Audio HATs ->
-
-Free Setups
------------
-
-A 'free setup' is trading convenience for flexibility.
-Choose a platform (PC, Mac, Tinkerboard, Odroid ...)
-Choose a OS supported by the platform.
-Choose best of breed components.
-Use the commandline.
-Free Setups not only provide for ultimate configurability most importantly they run on any hardware like the odroid_
-or the `asus tinkerboard`_ which are better suited for audio than the popular raspberry.
-The best base for a free setup i found so far is dietpi_
 
 
 Controller UI
@@ -120,28 +40,6 @@ Not all solutions have such a strict seaparation of components, but integrate so
 Traditional local player applications like iTunes, foobar, vlc, clementine, audirvana .... have the controller and render part combined in one Applikation.
 Repository can be local files or streaming services. While easy to setup and configure you are pretty much restricted to use a single device.
 
-Streaming Services
-___________________
-
-i regularly use these streaming services
-
-* Spotify
-
-* Qobuz
-
-I like the editorial content of Qobuz as much as the presence of High Res audio.
-These streaming services can be seen as a remote :ref:repository_ with a GUI as a native Application for iOs, Android
-which are probably the most popular usecases.
-Alternative Interfaces provided by volumio or mopidy require access to the streaming services
-APIs. This proves to be not an easy task.
-
-
-Network Player (Renderer)
--------------------------
-
-* mpd
-* mopidy
-* squuezelite
 
 Alsa
 ____
@@ -234,14 +132,11 @@ Chains
 * Raspi4 -> AVR1 -> Zone1: LS2, Zone2: LS4
 * Odroid C2 -> LS3
 
-Chain Links
------------
+.. todo::
 
-
-
-
-
-
+    - elaborate on file maintainance
+        - beets
+        - add sample scripts
 
 
 .. toctree::
@@ -252,6 +147,9 @@ Chain Links
     :hidden:
 
     cooperation.rst
+    camiladsp.rst
+    lms.rst
+    mopidy.rst
     projects.rst
     hardware.rst
     distributions.rst
