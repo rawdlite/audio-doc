@@ -8,34 +8,35 @@ At long last i ended up with a setup, that is stable, convenient and provides wh
 
 You are invited to leave a comment in the `issues <https://github.com/rawdlite/audio-doc/issues>`_ section
 
-On my quest i tried quite a few `Distributions`_.
+On my quest i tried quite a few :ref:`distributions`.
 In the end i found them lacking functionality, like supporting Qobuz my Streamingservice of choice.
-Or in the case of moode they are so overengineered that neither my udev scripts nor my amp switch works under moode.
+Or in the case of :ref:`moode`  they are so overengineered that neither my udev scripts nor my amp switch works under moode.
 Also almost every distribution i came across uses mpd, which is crashing a lot on my extensive collection.
 
-I used 'Mopidy_' as an alternative to mpd and RompR for a long time.
+I used :ref:`mopidy` as an alternative to mpd and RompR for a long time.
 I even composed a docker environment to create my setup in an instant.
 In the end it was a great solution to play my local files, yet there is no way to play Qobuz this way.
 I tried to write a plugin, but Qobuz is not giving access to its api.
 
+.. _ultimate_solution:
+
 My ultimate solution now consists of theses components:
 
-* `Dietpi`_
-* `LMS`_ aka Logitech Media Server
+* :ref:`dietpi`
+* :ref:`lms` aka Logitech Media Server
 * Squeezelite as a LMS client
 * shairport
 * camilladsp
-* custom scripts for convenience
+* some :ref:`custom scripts <custom>` for my convenience
 
 
-1. Install ``dietpi <https://dietpi.com/>`_
-    See Details `here`_
-    .. _here: Dietpi_
+1. Install `dietpi <https://dietpi.com/>`_
+    See Details :ref:`dietpi`
 
 2. Install an LMS Server. You have a couple of options:
 
     * use a dedicated server
-    * use NAS to run a docker container `LMS on Synology`_
+    * use NAS to run a docker container :ref:`lms_on_nas'
 
 3. Install squeezelite as a client
 

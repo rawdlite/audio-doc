@@ -1,5 +1,8 @@
+.. lms:
+
+***
 LMS
----
+***
 
 `Logitech Media Server <https://en.wikipedia.org/wiki/Logitech_Media_Server>` is a community software project that started as a commercial hardware enterprise.
 There are a plethora of ways to install LMS. I used the `dietpi`_ based `Evo Sabre DAC Image <https://www.audiophonics.fr/en/blog-diy-audio/23-start-up-evo-raspdac-rasptouch-raspdac-mini-with-a-pre-configured-image.html>`_
@@ -32,7 +35,7 @@ __________________
 
 * Native Controller Apps for many platforms
 
-
+.. _lms_on_nas:
 
 LMS on Synology
 ---------------

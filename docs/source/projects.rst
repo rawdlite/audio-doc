@@ -1,42 +1,20 @@
+.. _projects:
+
 ************
 Projects
 ************
 
-SSH Setup
----------
-
-All my projects, add ons and customizations are done on the commandline.
-So making the terminal access as easy as possible pays of.
-
-Copy Keys
-_________
-
-If you have no ssh keys set the up with ssh-keygen.
-Then copy them with ssh-copy-id to the target machine.
-Like
-    ssh-copy-id pi@192.168.0.57
-now you can login without the use of a password.
-
-SSH Config
-__________
-
-Add an entry in ~/.ssh/config like
-
-    ``Host moode
-        Hostname 192.168.0.57
-        User pi``
-
-you can login with ssh moode now.
 
 Remote Power Switch
 -------------------
-
 
 
 Objective
 _________
 
 Conveniently control `Power Amps </hardware.html#amplification>`_
+
+
 
 Rational
 ________

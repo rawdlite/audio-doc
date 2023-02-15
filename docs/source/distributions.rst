@@ -1,5 +1,8 @@
+.. _distributions:
+
+*************
 Distributions
--------------
+*************
 
 I have tested a couple of distributions. With the `Evo Sabre <https://www.audiophonics.fr/en/network-audio-players-raspdac/audiophonics-evo-sabre-pack-diy-balanced-dac-2xes9038q2m-streamer-for-raspberry-pi-4-p-14639.html>`_ i am limited to the audiophonics distributions of
 volumio, moode and lms until i find out how to install the oled code on a fresh install.
@@ -62,12 +65,35 @@ Nodejs is not a favourite of mine. Volumio some what seems to try to become the 
 There is a lot of 'audiophile' chatter. Like the importance of expensive USB-Cables and hearing diffrences in the high frequencies after upgrading the OS-Versions.
 The latter of course is not a problem of volumio per se but gets more encouraged as with other distributions.
 
+.. _moode:
+
 MoOde
 -----
 
-`MoOde`_ shares a common ancestry with Volumio. Technology stack is php and jquery.
-I have so far given MoOde only a brief spin. It failed to even attempt to import my nfs share.
-No error message in the GUI. I did not investigate further since there are so many alternatives.
-I liked the EQ section, although it felt a bit to loosely integrated with a extra section for CamillaDSP in parallel to
-EQ and PEQ sections. But then i have spent too little time with Moode to come up with an evaluation.
+`moOde <https://moodeaudio.org/>`_ shares a common ancestry with Volumio. Technology stack is php and jquery.
+moode uses mpd and shares the instability associated with that approach. My local collection is extensive and some files may be broken, so YMMV.
+Other than that i came to like moode a lot as it is a very complete audio solution.
+Camilladsp, squuezelite, shairplay, bluetooth ...
 
+Plus
+____
+
+* Lots of features
+
+* Camilladsp + PEQ
+
+* ssh Terminal in Browser
+
+Minus
+_____
+
+* The sheer amount of configuration otions make it somewhat difficult for a beginner
+
+* The extensive changes to the base OS make it hard to do individual changes. (udev, alsa polling)
+
+Verdict
+_______
+
+Great distribution. If you don't have any linux experience and don't plan on extending the distribution,
+this is the distribution i would recommend. After some usage i found myself almost exclusivly using the squeezeplayer mode.
+This lead me to my :ref:`own solution <ultimate_solution>`

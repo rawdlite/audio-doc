@@ -1,11 +1,42 @@
+.. _custom:
+
 ***************
 Custom Scripts
 ***************
 
-check_sound
-___________
+Autoswitch on for my Monoamps
 
-.. code::
+SSH Setup
+_________
+
+All my projects, add ons and customizations are done on the commandline.
+So making the terminal access as easy as possible pays of.
+
+Copy Keys
+_________
+
+If you have no ssh keys set the up with ssh-keygen.
+Then copy them with ssh-copy-id to the target machine.
+Like
+    ssh-copy-id pi@192.168.0.57
+now you can login without the use of a password.
+
+SSH Config
+__________
+
+Add an entry in ~/.ssh/config like
+
+    ``Host dietpi
+        Hostname 192.168.0.57
+        User dietpi``
+
+you can login with ssh dietpi now.
+
+
+check for sound
+_______________
+
+.. code-block:: python
 
     #!/usr/bin/python3
 
