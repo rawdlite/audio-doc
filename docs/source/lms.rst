@@ -1,13 +1,15 @@
-.. lms:
+.. _lms:
+
+.. contents:: :depth: 2
 
 ***
 LMS
 ***
 
 `Logitech Media Server <https://en.wikipedia.org/wiki/Logitech_Media_Server>` is a community software project that started as a commercial hardware enterprise.
-There are a plethora of ways to install LMS. I used the `dietpi`_ based `Evo Sabre DAC Image <https://www.audiophonics.fr/en/blog-diy-audio/23-start-up-evo-raspdac-rasptouch-raspdac-mini-with-a-pre-configured-image.html>`_
+There are a plethora of ways to install LMS. I used the :ref:`dietpi <dietpi_anchor>` based `Evo Sabre DAC Image <https://www.audiophonics.fr/en/blog-diy-audio/23-start-up-evo-raspdac-rasptouch-raspdac-mini-with-a-pre-configured-image.html>`_
 provided by Audiphonics. There are some peculiarities like the Wlan Modul being disabled on first boot.
-This could be fixed by editing the dietpi.txt file. Apart from the Evo Sabre Drivers it is a generic `dietpi`_ setup.
+This could be fixed by editing the dietpi.txt file. Apart from the Evo Sabre Drivers it is a generic :ref:`dietpi <dietpi_anchor>` setup.
 The setup consist of two services.
 
 * Logitech Media Server
@@ -38,7 +40,7 @@ __________________
 .. _lms_on_nas:
 
 LMS on Synology
----------------
+_______________
 
 Since the audio files reside on the NAS it makes sense to run the LMS on the NAS.
 This is not supported by Synology by an App any longer. So its docker to the rescue.
@@ -78,7 +80,7 @@ Run
 One has to understand that with LMS the server looks for client and the connection is controlled by the server.
 So next we go on the servers Webpage  http://<NAS IP>:9000 and select our player.
 
-On the `Evo Sabre`_ the second Display now kept complaining 'No Player connected'.
+On the Evo Sabre the second Display now kept complaining 'No Player connected'.
 The display is driven by /home/dietpi/oled...
 In that script the IP of our NAS has to be inserted instead of localhost.
 

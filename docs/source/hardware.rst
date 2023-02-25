@@ -1,5 +1,6 @@
+############
 My Hardware:
-------------
+############
 
 Speaker:
 ________
@@ -26,6 +27,8 @@ _____
 * AKG 701
 * Focal Clear
 
+.. _citypulse:
+
 Amplification:
 ______________
 
@@ -36,6 +39,8 @@ ______________
 * AVR1 `Yamaha RX2060 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-a2060_u/specs.html>`_
 * AVR2 `Yamaha RX-V481 <https://usa.yamaha.com/products/audio_visual/av_receivers_amps/rx-v481_u/specs.html>`_
 * HA1  Citypulse DA2.03
+
+.. _rme:
 
 DAC:
 ____
@@ -60,3 +65,10 @@ Old and busted
 * luxmann C-12
 * Techics SE-9021
 * Revox A77 MK IV
+
+
+Chains
+------
+* Odroid C2 - Hifi Shield -> AVR2 -> LS1
+* Raspi4 -> AVR1 -> Zone1: LS2, Zone2: LS4
+* Odroid C2 -> LS3

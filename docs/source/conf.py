@@ -7,15 +7,13 @@ copyright = '2021, T.Roth'
 author = 'tom roth'
 
 release = '0.2'
-version = '0.2.0'
+version = '0.2.1'
 
 # -- General configuration
 
 extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
 ]
 
@@ -31,6 +29,10 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
+
+html_theme_options = {
+    'collapse_navigation': False,
+}
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'

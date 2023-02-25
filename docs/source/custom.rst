@@ -4,7 +4,10 @@
 Custom Scripts
 ***************
 
-Autoswitch on for my Monoamps
+Autoswitch for my Monoamps
+--------------------------
+
+I want my Amplifiers to automatically power on when i am playing music.
 
 SSH Setup
 _________
@@ -18,7 +21,11 @@ _________
 If you have no ssh keys set the up with ssh-keygen.
 Then copy them with ssh-copy-id to the target machine.
 Like
-    ssh-copy-id pi@192.168.0.57
+
+.. code::
+
+    ssh-copy-id dietpi@192.168.0.57
+
 now you can login without the use of a password.
 
 SSH Config
@@ -26,9 +33,11 @@ __________
 
 Add an entry in ~/.ssh/config like
 
-    ``Host dietpi
-        Hostname 192.168.0.57
-        User dietpi``
+.. code::
+
+    Host dietpi
+      Hostname 192.168.0.57
+      User dietpi
 
 you can login with ssh dietpi now.
 

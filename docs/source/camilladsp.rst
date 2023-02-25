@@ -1,21 +1,27 @@
+**********
 CamillaDSP
-----------
+**********
 
 
 Install camillagui
 __________________
 
-wget https://github.com/HEnquist/camillagui-backend/releases/download/v1.0.1/camillagui.zip -P ~/camilladsp
-unzip ~/camilladsp/camillagui.zip -d ~/camilladsp/camillagui
-sudo apt-get install python3-setuptools git python3 python3-pip python3-websocket python3-aiohttp python3-jsonschema python3-numpy python3-matplotlib unzip
-python3 -m pip install --upgrade jsonschema
-sudo python3 -m pip install git+https://github.com/HEnquist/pycamilladsp.git
-sudo python3 -m pip install git+https://github.com/HEnquist/pycamilladsp-plot.git
-vim ~/camilladsp/camillagui/config/camillagui.yml
+.. code-block::
 
-camilla_host: "192.168.0.100"
+    wget https://github.com/HEnquist/camillagui-backend/releases/download/v1.0.1/camillagui.zip -P ~/camilladsp
+    unzip ~/camilladsp/camillagui.zip -d ~/camilladsp/camillagui
+    sudo apt-get install python3-setuptools git python3 python3-pip python3-websocket python3-aiohttp python3-jsonschema python3-numpy python3-matplotlib unzip
+    python3 -m pip install --upgrade jsonschema
+    sudo python3 -m pip install git+https://github.com/HEnquist/pycamilladsp.git
+    sudo python3 -m pip install git+https://github.com/HEnquist/pycamilladsp-plot.git
+    vim ~/camilladsp/camillagui/config/camillagui.yml
 
-update_config_symlink: true
+
+.. code::
+
+    camilla_host: "192.168.0.100"
+
+    update_config_symlink: true
 
 ======== Running on http://0.0.0.0:5000 ========
 (Press CTRL+C to quit)
@@ -25,12 +31,16 @@ __________________
 
 Get camilladsp-linux-armv7.tar.gz
 
-``wget https://github.com/HEnquist/camilladsp/releases/download/v1.0.3/camilladsp-linux-armv7.tar.gz``
+.. code-block::
+
+    wget https://github.com/HEnquist/camilladsp/releases/download/v1.0.3/camilladsp-linux-armv7.tar.gz
 
 Unpack
 
-``tar xzf camilladsp-linux-armv7.tar.gz
-  mv camilladsp /usr/local/bin/``
+.. code-block::
+
+    xzf camilladsp-linux-armv7.tar.gz
+    mv camilladsp /usr/local/bin/
 
 
 How to continue
@@ -44,31 +54,45 @@ There are two ways to install camilladsp:
 Loopback Device
 _______________
 
-``sudo apt install linux-modules-extra-raspi``
+.. code-block::
 
-``sudo vim /etc/modules-load.d/snd-aloop.conf``
+    sudo apt install linux-modules-extra-raspi
+    sudo vim /etc/modules-load.d/snd-aloop.conf
 
-''snd-aloop``
+add
+.. code::
+
+    snd-aloop
 
 reboot
 
-aplay -L
+.. code::
 
-hw:CARD=Loopback,DEV=0
-    Loopback, Loopback PCM
-    Direct hardware device without any conversions
-hw:CARD=Loopback,DEV=1
-    Loopback, Loopback PCM
-    Direct hardware device without any conversions
+    aplay -L
 
-arecord -L
+Output
+.. code::
 
-hw:CARD=Loopback,DEV=0
-    Loopback, Loopback PCM
-    Direct hardware device without any conversions
-hw:CARD=Loopback,DEV=1
-    Loopback, Loopback PCM
-    Direct hardware device without any conversions
+    hw:CARD=Loopback,DEV=0
+        Loopback, Loopback PCM
+        Direct hardware device without any conversions
+    hw:CARD=Loopback,DEV=1
+        Loopback, Loopback PCM
+        Direct hardware device without any conversions
+
+.. code::
+
+    arecord -L
+
+Output:
+.. code::
+
+    hw:CARD=Loopback,DEV=0
+        Loopback, Loopback PCM
+        Direct hardware device without any conversions
+    hw:CARD=Loopback,DEV=1
+        Loopback, Loopback PCM
+        Direct hardware device without any conversions
 
 
 
@@ -78,15 +102,17 @@ hw:CARD=Loopback,DEV=1
 Install CamillaDSP Alsa Plugin
 ______________________________
 
-``git clone https://github.com/scripple/alsa_cdsp.git``
-cd alsa_cdsp/
-apt install libasound2-dev build-essential
-make
-make install
-mv /alsa-lib/ /usr/lib/arm-linux-gnueabihf/
-cat asound.conf >> /etc/asound.conf
-mkdir /opt/camilladsp
-cp config_in.yaml /opt/camilladsp
+.. code-block::
+
+    git clone https://github.com/scripple/alsa_cdsp.git
+    cd alsa_cdsp/
+    apt install libasound2-dev build-essential
+    make
+    make install
+    mv /alsa-lib/ /usr/lib/arm-linux-gnueabihf/
+    cat asound.conf >> /etc/asound.conf
+    mkdir /opt/camilladsp
+    cp config_in.yaml /opt/camilladsp
 
 edit /etc/asound.conf
 
@@ -116,7 +142,9 @@ edit /opt/camilladsp/config_out.yaml
         device: "hw:CARD=OnBoard,DEV=2"
         format: S32LE
 
-``alsactl nrestore``
+.. code::
+
+    alsactl restore
 
 
 

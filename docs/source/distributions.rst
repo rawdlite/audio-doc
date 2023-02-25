@@ -65,9 +65,9 @@ Nodejs is not a favourite of mine. Volumio some what seems to try to become the 
 There is a lot of 'audiophile' chatter. Like the importance of expensive USB-Cables and hearing diffrences in the high frequencies after upgrading the OS-Versions.
 The latter of course is not a problem of volumio per se but gets more encouraged as with other distributions.
 
-.. _moode:
+.. _moode_dist:
 
-MoOde
+moode
 -----
 
 `moOde <https://moodeaudio.org/>`_ shares a common ancestry with Volumio. Technology stack is php and jquery.
