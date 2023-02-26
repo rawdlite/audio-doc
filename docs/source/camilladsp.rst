@@ -1,3 +1,5 @@
+.. _camilladsp:
+
 **********
 CamillaDSP
 **********

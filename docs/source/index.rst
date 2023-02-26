@@ -1,7 +1,7 @@
-Welcome To The Ultimate Audio Setup!
+Welcome To My Ultimate Audio Setup!
 ====================================
 
-There is of cause no ultimate Audio Setup.
+There is of course no ultimate Audio Setup.
 
 I tried quite a lot of setups thinking this is the ultimate solution.
 At long last i ended up with a setup, that is stable, convenient and provides what i want.
@@ -18,11 +18,15 @@ I even composed a docker environment to create my setup in an instant.
 In the end it was a great solution to play my local files, yet there is no way to play Qobuz this way.
 I tried to write a plugin, but Qobuz is not giving access to its api.
 
-So i ended up with this :ref:`Setup <ultimate_solution>`
+So i ended up with a minimal :ref:`Setup <ultimate_solution>` based on :ref:`dietpi <dietpi_anchor>`, :ref:`Logitechmedia Server <lms>`,
+:ref:`squeezelite`, and :ref:`camilladsp`
 
-Custom :ref:`scripts for convenience <projects>`
 
-:ref:`Organizing <beets>` local files
+In addition i created some custom :ref:`scripts for convenience <projects>`
+
+And then there is my approach to :ref:`organize <beet>` my local files.
+
+Finally i try to document :ref:`hardware`.
 
 
 

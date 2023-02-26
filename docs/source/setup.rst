@@ -22,6 +22,12 @@ My ultimate solution now consists of theses components:
     * use a dedicated server
     * use NAS to run a docker container :ref:`lms_on_nas`
 
+.. _squeezelite:
+
+-----------
+squeezelite
+-----------
+
 3. Install squeezelite as a client
 
     i recommend dietpi

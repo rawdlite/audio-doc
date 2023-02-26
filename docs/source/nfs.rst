@@ -1,6 +1,8 @@
-**************************
-Remote file access via nfs
-**************************
+.. _nfs:
+
+***************************
+Remote file access with nfs
+***************************
 .. _nfs_auto_mount:
 
 For accessing local audiofiles i prefer nfs, that has a smaller footprint as SMB (aka sambas) or afp.
