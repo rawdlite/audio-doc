@@ -95,6 +95,25 @@ When changing the path definition in config.yaml you can reimport the files
 
     beet import -As $PWD/Hungern_un_Freten-2023.mp3
 
+Alternatives
+""""""""""""
+
+With the `alternatives Plugin <https://github.com/geigerzaehler/beets-alternatives>`_ you can create additional Directory Trees linked to your Colection.
+Say you want the highres files of your collection accessible through an alternative navigation tree.
+
+.. code-block::
+
+    alternatives:
+        HighRes:
+            directory: /data/music/music_data/alternatives/highres
+            query: bitdepth:16..
+
+            paths:
+                default: '%if{%ifdef{album_grouping},_${album_grouping},NO_GROUP}/%asciify{%if{$albumartist_sort,$albumartist_sort,$albumartist}}/%if{$original_year,${original_year}_,%if{$year,${year}-}}%asciify{$album}/%if{$disc,$disc-}%if{$track,${track}_-_}%asciify{${artist}_-_${album}_-_$title}'
+                comp: '%if{%ifdef{album_grouping},_${album_grouping},NO_GROUP}/00_Compilations/%asciify{$album}/%if{$disc,${disc}-}%if{$track,${track}_-_}%asciify{${artist}_-_$title}'
+            formats: link
+
+
 Modify tags
 """""""""""
 
